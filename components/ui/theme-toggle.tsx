@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes"
 import { Moon, Sun, Sunrise, Waves, Zap, Leaf } from "lucide-react"
+import { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -12,11 +13,19 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  const { theme } = useTheme()
+  // When mounted on client, now we can show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   const getThemeIcon = () => {
+    if (!mounted) {
+      return <Sun className="h-[1.2rem] w-[1.2rem]" />
+    }
+    
     switch(theme) {
       case 'light': return <Sun className="h-[1.2rem] w-[1.2rem]" />
       case 'dark': return <Moon className="h-[1.2rem] w-[1.2rem]" />
