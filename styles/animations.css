@@ -96,27 +96,13 @@
   }
 }
 
-/* Typewriter effect */
-.typewriter-label {
+/* Label styling (previously typewriter) */
+.label {
   display: inline-block;
-  overflow: hidden;
-  border-right: 2px solid;
-  white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 0.875rem;
   color: var(--muted-foreground);
   letter-spacing: 0.05em;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: currentColor }
 }
 
 /* Index card styling */
@@ -137,9 +123,4 @@
   --border-color: #334155;
 }
 
-/* Scrapbook grid */
-.scrapbook-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
+/* Scrapbook grid styling moved to globals.css */

@@ -76,7 +76,7 @@ export function EmailSignup() {
     return (
       <div className="index-card mx-auto max-w-md space-y-4 text-center">
         <div className="space-y-2">
-          <p className="typewriter-label">Magic incoming</p>
+          <p className="label">Magic incoming</p>
           <h2 className="text-2xl font-bold tracking-tight">Check Your Inbox!</h2>
           <p className="text-muted-foreground">
             Your digital zine is on its way. While you wait, explore our site or drop another creative spark.
@@ -85,8 +85,10 @@ export function EmailSignup() {
         <ConfettiButton
           onClick={() => setIsSubmitted(false)}
         >
-          <Sparkles className="mr-2 h-4 w-4" />
-          Drop Another Spark
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-4 w-4" />
+            <span>Drop Another Spark</span>
+          </div>
         </ConfettiButton>
       </div>
     )
@@ -95,7 +97,7 @@ export function EmailSignup() {
   return (
     <div className="index-card mx-auto max-w-md space-y-4">
       <div className="space-y-2">
-        <p className="typewriter-label">Free digital zine</p>
+        <p className="label">Free digital zine</p>
         <h2 className="text-2xl font-bold tracking-tight">Join the Movement</h2>
         <p className="text-muted-foreground">
           Sign up to receive our creative manifesto and occasional sparks of inspiration.
@@ -130,13 +132,17 @@ export function EmailSignup() {
           >
             {isSubmitting ? (
               <>
-                <span className="mr-2 h-4 w-4 animate-spin rounded-full border-b-2 border-t-2 border-background"></span>
-                Sending...
+                <div className="flex items-center gap-2">
+                  <span className="h-4 w-4 animate-spin rounded-full border-b-2 border-t-2 border-background"></span>
+                  <span>Sending...</span>
+                </div>
               </>
             ) : (
               <>
-                Send Me the Zine
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <div className="flex items-center gap-2">
+                  <span>Send Me the Zine</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
               </>
             )}
           </Button>

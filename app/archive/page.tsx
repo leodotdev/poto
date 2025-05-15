@@ -77,7 +77,7 @@ export default function ArchivePage() {
       {/* Hero Section */}
       <section className="flex flex-col items-center gap-8 text-center md:gap-12">
         <div className="space-y-4">
-          <p className="typewriter-label">Explore Our Collection</p>
+          <p className="label">Explore Our Collection</p>
           <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             The Ritual{" "}
             <span className="squiggle-border relative inline-block">
@@ -92,7 +92,7 @@ export default function ArchivePage() {
       </section>
 
       {/* Search and Filter */}
-      <section className="mx-auto max-w-4xl space-y-4">
+      <section className="mx-auto max-w-4xl flex flex-col gap-4">
         <div className="flex flex-col gap-4 sm:flex-row">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -102,8 +102,10 @@ export default function ArchivePage() {
             />
           </div>
           <Button variant="outline">
-            <Filter className="mr-2 h-4 w-4" />
-            Filter
+            <div className="flex items-center gap-2">
+              <Filter className="h-4 w-4" />
+              <span>Filter</span>
+            </div>
           </Button>
         </div>
       </section>
@@ -113,12 +115,12 @@ export default function ArchivePage() {
         <div className="scrapbook-grid">
           {rituals.map((ritual) => (
             <Card key={ritual.id} className="index-card overflow-hidden">
-              <CardContent className="p-6 space-y-4">
+              <CardContent className="p-6 flex flex-col gap-4">
                 <div className="flex justify-between items-start">
-                  <div className="space-y-1">
+                  <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-2">
                       {categoryIcons[ritual.category as keyof typeof categoryIcons]}
-                      <p className="typewriter-label">{ritual.category}</p>
+                      <p className="label">{ritual.category}</p>
                     </div>
                     <h3 className="font-serif text-xl font-semibold">{ritual.title}</h3>
                   </div>
@@ -143,8 +145,10 @@ export default function ArchivePage() {
                   <p className="text-sm text-muted-foreground">{ritual.timeRequired}</p>
                   <Link href={`/archive/${ritual.id}`}>
                     <Button variant="link" className="font-medium p-0">
-                      View Ritual
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <div className="flex items-center gap-2">
+                        <span>View Ritual</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </div>
                     </Button>
                   </Link>
                 </div>
@@ -155,18 +159,22 @@ export default function ArchivePage() {
       </section>
 
       {/* Coming Soon */}
-      <section className="mx-auto max-w-2xl rounded-lg border-2 bg-muted/50 p-8 text-center">
-        <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
-          New Rituals Coming Soon
-        </h2>
-        <p className="mt-4 text-muted-foreground">
+      <section className="mx-auto max-w-2xl rounded-lg border-2 bg-muted/50 p-8 text-center flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
+          <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
+            New Rituals Coming Soon
+          </h2>
+          <p className="text-muted-foreground">
           Our collection is ever-growing. Sign up to be notified when we add new creative practices.
         </p>
-        <div className="mt-6">
+        </div>
+        <div>
           <Link href="/">
             <Button size="lg" className="font-medium">
-              Join Our Community
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <div className="flex items-center gap-2">
+                <span>Join Our Community</span>
+                <ArrowRight className="h-4 w-4" />
+              </div>
             </Button>
           </Link>
         </div>

@@ -64,7 +64,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="flex flex-col items-center gap-8 text-center md:gap-12">
         <div className="space-y-4">
-          <p className="typewriter-label">Get in Touch</p>
+          <p className="label">Get in Touch</p>
           <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Let's{" "}
             <span className="squiggle-border relative inline-block">

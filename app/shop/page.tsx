@@ -76,7 +76,7 @@ export default function ShopPage() {
       {/* Hero Section */}
       <section className="flex flex-col items-center gap-8 text-center md:gap-12">
         <div className="space-y-4">
-          <p className="typewriter-label">Our Collection</p>
+          <p className="label">Our Collection</p>
           <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             The Gift{" "}
             <span className="squiggle-border relative inline-block">
@@ -131,7 +131,7 @@ export default function ShopPage() {
                 <CardContent className="p-6">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <p className="typewriter-label">{product.category}</p>
+                      <p className="label">{product.category}</p>
                       <div className="flex items-center">
                         <Star className="h-3 w-3 fill-primary text-primary" />
                         <Star className="h-3 w-3 fill-primary text-primary" />
@@ -187,7 +187,7 @@ export default function ShopPage() {
               </div>
               <CardContent className="p-6">
                 <div className="space-y-1">
-                  <p className="typewriter-label">{product.category}</p>
+                  <p className="label">{product.category}</p>
                   <h3 className="font-serif text-lg font-semibold">{product.name}</h3>
                   <p className="text-muted-foreground line-clamp-2">{product.description}</p>
                 </div>

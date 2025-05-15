@@ -13,8 +13,10 @@ export function Footer() {
           </Link>
           <p className="text-center text-sm text-muted-foreground md:text-left">
             A sanctuary for creative souls. Built with 
-            <Heart className="mx-1 inline-block h-4 w-4 fill-primary text-primary" />
-            and a bit of chaos.
+            <span className="inline-flex items-center gap-1">
+              <Heart className="h-4 w-4 fill-primary text-primary" />
+              and a bit of chaos.
+            </span>
           </p>
         </div>
         <div className="flex gap-4">

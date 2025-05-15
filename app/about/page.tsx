@@ -12,7 +12,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="flex flex-col items-center gap-8 text-center md:gap-12">
         <div className="space-y-4">
-          <p className="typewriter-label">Our Story</p>
+          <p className="label">Our Story</p>
           <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             The Origin of the{" "}
             <span className="squiggle-border relative inline-block">
@@ -27,13 +27,13 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="mx-auto max-w-3xl space-y-12">
-        <div className="space-y-8">
+      <section className="mx-auto max-w-3xl">
+        <div className="flex flex-col gap-8">
           {/* Entry 1 */}
           <Card className="index-card mx-auto max-w-2xl">
-            <CardContent className="p-6 space-y-4">
+            <CardContent className="p-6 flex flex-col gap-4">
               <div className="flex justify-between items-center">
-                <p className="typewriter-label">Chapter One</p>
+                <p className="label">Chapter One</p>
                 <p className="text-sm text-muted-foreground">Spring 2023</p>
               </div>
               <h3 className="font-serif text-xl font-semibold">The Creative Drought</h3>
@@ -52,9 +52,9 @@ export default function AboutPage() {
 
           {/* Entry 2 */}
           <Card className="index-card mx-auto max-w-2xl rotate-[-1deg]">
-            <CardContent className="p-6 space-y-4">
+            <CardContent className="p-6 flex flex-col gap-4">
               <div className="flex justify-between items-center">
-                <p className="typewriter-label">Chapter Two</p>
+                <p className="label">Chapter Two</p>
                 <p className="text-sm text-muted-foreground">Summer 2023</p>
               </div>
               <h3 className="font-serif text-xl font-semibold">The Kitchen Table Sessions</h3>
@@ -73,9 +73,9 @@ export default function AboutPage() {
 
           {/* Entry 3 */}
           <Card className="index-card mx-auto max-w-2xl rotate-[1deg]">
-            <CardContent className="p-6 space-y-4">
+            <CardContent className="p-6 flex flex-col gap-4">
               <div className="flex justify-between items-center">
-                <p className="typewriter-label">Chapter Three</p>
+                <p className="label">Chapter Three</p>
                 <p className="text-sm text-muted-foreground">Winter 2023</p>
               </div>
               <h3 className="font-serif text-xl font-semibold">The Poetic Manifesto</h3>
@@ -95,9 +95,9 @@ export default function AboutPage() {
 
           {/* Entry 4 */}
           <Card className="index-card mx-auto max-w-2xl rotate-[-0.5deg]">
-            <CardContent className="p-6 space-y-4">
+            <CardContent className="p-6 flex flex-col gap-4">
               <div className="flex justify-between items-center">
-                <p className="typewriter-label">Chapter Four</p>
+                <p className="label">Chapter Four</p>
                 <p className="text-sm text-muted-foreground">Present Day</p>
               </div>
               <h3 className="font-serif text-xl font-semibold">The Sanctuary Expands</h3>
@@ -117,18 +117,18 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="mx-auto max-w-4xl space-y-8">
-        <div className="text-center">
+      <section className="mx-auto max-w-4xl flex flex-col gap-8">
+        <div className="text-center flex flex-col gap-4">
           <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
             Our Creative Values
           </h2>
-          <p className="mt-4 mx-auto max-w-[600px] text-muted-foreground">
+          <p className="mx-auto max-w-[600px] text-muted-foreground">
             The principles that guide our work and shape our community
           </p>
         </div>
         
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-2">
+          <div className="flex flex-col gap-2">
             <h3 className="font-serif text-xl font-semibold">Sacred Silliness</h3>
             <p className="text-muted-foreground">
               We honor play as a profound act. Whimsy, experimentation, and joy are not 
@@ -136,7 +136,7 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <div className="space-y-2">
+          <div className="flex flex-col gap-2">
             <h3 className="font-serif text-xl font-semibold">Poetic Disorder</h3>
             <p className="text-muted-foreground">
               We embrace the messy middle, the beauty of imperfection, and the wisdom that 
@@ -144,7 +144,7 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <div className="space-y-2">
+          <div className="flex flex-col gap-2">
             <h3 className="font-serif text-xl font-semibold">Tactile Weirdness</h3>
             <p className="text-muted-foreground">
               We create with our hands and hearts, valuing the physicality of making and 
@@ -152,7 +152,7 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <div className="space-y-2">
+          <div className="flex flex-col gap-2">
             <h3 className="font-serif text-xl font-semibold">Human-Centered Creation</h3>
             <p className="text-muted-foreground">
               We design for human souls, not algorithms. We prioritize meaning over metrics, 
@@ -163,18 +163,22 @@ export default function AboutPage() {
       </section>
 
       {/* Join CTA */}
-      <section className="mx-auto max-w-2xl rounded-lg border-2 bg-muted/50 p-8 text-center">
-        <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
-          Join Our Creative Movement
-        </h2>
-        <p className="mt-4 text-muted-foreground">
+      <section className="mx-auto max-w-2xl rounded-lg border-2 bg-muted/50 p-8 text-center flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
+          <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
+            Join Our Creative Movement
+          </h2>
+          <p className="text-muted-foreground">
           Become part of our community and receive our creative manifesto.
         </p>
-        <div className="mt-6 flex justify-center gap-4">
+        </div>
+        <div className="flex justify-center gap-4">
           <Link href="/">
             <Button size="lg" className="font-medium">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <div className="flex items-center gap-2">
+                <span>Get Started</span>
+                <ArrowRight className="h-4 w-4" />
+              </div>
             </Button>
           </Link>
           <ConfettiButton
@@ -182,8 +186,10 @@ export default function AboutPage() {
             size="lg"
             confettiColors={["#8B5CF6", "#D946EF", "#F97316", "#06B6D4", "#84CC16"]}
           >
-            <Sparkles className="mr-2 h-4 w-4" />
-            Spark Joy
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-4 w-4" />
+              <span>Spark Joy</span>
+            </div>
           </ConfettiButton>
         </div>
       </section>

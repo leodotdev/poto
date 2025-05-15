@@ -85,7 +85,7 @@ export function Navbar() {
                     </Link>
                   ))}
                 </div>
-                <div className="mt-auto flex justify-end">
+                <div className="flex justify-end mt-auto">
                   <ThemeToggle />
                 </div>
               </div>
