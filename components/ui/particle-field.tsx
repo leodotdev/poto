@@ -23,8 +23,8 @@ const fragmentShader = `
   #define S(a, b, t) smoothstep(a, b, t)
   #define sat(x) clamp(x, 0.0, 1.0)
   // #define SPHERECOL vec3(1.0, 1.0, 1.0) // We will use iColor instead
-  #define NUM_SPHERES 50.0
-  #define NUM_DUST 200.0
+  #define NUM_SPHERES 25.0
+  #define NUM_DUST 100.0
   #define LIGHT_DIR vec3(0.577, -0.577, -0.577) // Lighting direction
   #define BASE_SPHERE_SIZE 1.0
   #define DUST_SIZE 0.05

@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import ScrollRevealItem from "@/components/ScrollRevealItem";
 
 // Sample ritual data
 const rituals = [
@@ -90,111 +91,129 @@ export default function ArchivePage() {
       {/* Hero Section */}
       <section className="flex flex-col items-center gap-8 text-center md:gap-12">
         <div className="space-y-4">
-          <p className="label">Explore Our Collection</p>
-          <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            The Ritual{" "}
-            <span className="squiggle-border relative inline-block">Index</span>
-          </h1>
-          <p className="mx-auto max-w-[700px] text-lg text-muted-foreground">
-            A curated collection of creative practices, experiments, and rituals
-            to help you reconnect with your creative essence.
-          </p>
+          <ScrollRevealItem delay={0}>
+            <p className="label">Explore Our Collection</p>
+          </ScrollRevealItem>
+          <ScrollRevealItem delay={150}>
+            <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              The Ritual{" "}
+              <span className="squiggle-border relative inline-block">
+                Index
+              </span>
+            </h1>
+          </ScrollRevealItem>
+          <ScrollRevealItem delay={300}>
+            <p className="mx-auto max-w-[700px] text-lg text-muted-foreground">
+              A curated collection of creative practices, experiments, and
+              rituals to help you reconnect with your creative essence.
+            </p>
+          </ScrollRevealItem>
         </div>
       </section>
 
       {/* Search and Filter */}
       <section className="mx-auto max-w-4xl flex flex-col gap-4">
         <div className="flex flex-col gap-4 sm:flex-row">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input placeholder="Search rituals..." className="pl-9" />
-          </div>
-          <Button variant="outline">
-            <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4" />
-              <span>Filter</span>
+          <ScrollRevealItem delay={0} className="flex-1">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input placeholder="Search rituals..." className="pl-9 w-full" />
             </div>
-          </Button>
+          </ScrollRevealItem>
+          <ScrollRevealItem delay={150}>
+            <Button variant="outline">
+              <div className="flex items-center gap-2">
+                <Filter className="h-4 w-4" />
+                <span>Filter</span>
+              </div>
+            </Button>
+          </ScrollRevealItem>
         </div>
       </section>
 
       {/* Rituals Grid */}
       <section className="mx-auto max-w-6xl">
         <div className="scrapbook-grid">
-          {rituals.map((ritual) => (
-            <Card key={ritual.id} className="index-card overflow-hidden">
-              <CardContent className="p-6 flex flex-col gap-4">
-                <div className="flex justify-between items-start">
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      {
-                        categoryIcons[
-                          ritual.category as keyof typeof categoryIcons
-                        ]
-                      }
-                      <p className="label">{ritual.category}</p>
-                    </div>
-                    <h3 className="font-serif text-xl font-semibold">
-                      {ritual.title}
-                    </h3>
-                  </div>
-                  <div className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    {ritual.difficulty}
-                  </div>
-                </div>
-                <p className="text-muted-foreground">{ritual.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {ritual.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="border-t p-6 pt-4">
-                <div className="flex w-full items-center justify-between">
-                  <p className="text-sm text-muted-foreground">
-                    {ritual.timeRequired}
-                  </p>
-                  <Link href={`/archive/${ritual.id}`}>
-                    <Button variant="link" className="font-medium p-0">
+          {rituals.map((ritual, index) => (
+            <ScrollRevealItem key={ritual.id} delay={index * 150}>
+              <Card className="index-card overflow-hidden">
+                <CardContent className="p-6 flex flex-col gap-4">
+                  <div className="flex justify-between items-start">
+                    <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
-                        <span>View Ritual</span>
-                        <ArrowRight className="h-4 w-4" />
+                        {
+                          categoryIcons[
+                            ritual.category as keyof typeof categoryIcons
+                          ]
+                        }
+                        <p className="label">{ritual.category}</p>
                       </div>
-                    </Button>
-                  </Link>
-                </div>
-              </CardFooter>
-            </Card>
+                      <h3 className="font-serif text-xl font-semibold">
+                        {ritual.title}
+                      </h3>
+                    </div>
+                    <div className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      {ritual.difficulty}
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground">{ritual.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {ritual.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t p-6 pt-4">
+                  <div className="flex w-full items-center justify-between">
+                    <p className="text-sm text-muted-foreground">
+                      {ritual.timeRequired}
+                    </p>
+                    <Link href={`/archive/${ritual.id}`}>
+                      <Button variant="link" className="font-medium p-0">
+                        <div className="flex items-center gap-2">
+                          <span>View Ritual</span>
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
+                      </Button>
+                    </Link>
+                  </div>
+                </CardFooter>
+              </Card>
+            </ScrollRevealItem>
           ))}
         </div>
       </section>
 
       {/* Coming Soon */}
       <section className="mx-auto max-w-2xl rounded-lg border-2 bg-muted/50 p-8 text-center flex flex-col gap-6">
-        <div className="flex flex-col gap-4">
-          <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
-            New Rituals Coming Soon
-          </h2>
-          <p className="text-muted-foreground">
-            Our collection is ever-growing. Sign up to be notified when we add
-            new creative practices.
-          </p>
-        </div>
-        <div>
-          <Link href="/">
-            <Button size="lg" className="font-medium">
-              <div className="flex items-center gap-2">
-                <span>Join Our Community</span>
-                <ArrowRight className="h-4 w-4" />
-              </div>
-            </Button>
-          </Link>
-        </div>
+        <ScrollRevealItem delay={0}>
+          <div className="flex flex-col gap-4">
+            <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
+              New Rituals Coming Soon
+            </h2>
+            <p className="text-muted-foreground">
+              Our collection is ever-growing. Sign up to be notified when we add
+              new creative practices.
+            </p>
+          </div>
+        </ScrollRevealItem>
+        <ScrollRevealItem delay={150}>
+          <div>
+            <Link href="/">
+              <Button size="lg" className="font-medium">
+                <div className="flex items-center gap-2">
+                  <span>Join Our Community</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Button>
+            </Link>
+          </div>
+        </ScrollRevealItem>
       </section>
     </div>
   );
