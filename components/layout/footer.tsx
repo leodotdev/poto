@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Heart } from "lucide-react"
+import Link from "next/link";
+import { Heart } from "lucide-react";
 
 export function Footer() {
   return (
@@ -12,7 +12,7 @@ export function Footer() {
             The Poetic Toolbox™
           </Link>
           <p className="text-center text-sm text-muted-foreground md:text-left">
-            A sanctuary for creative souls. Built with 
+            A sanctuary for creative souls. Built with
             <span className="inline-flex items-center gap-1">
               <Heart className="h-4 w-4 fill-primary text-primary" />
               and a bit of chaos.
@@ -20,17 +20,26 @@ export function Footer() {
           </p>
         </div>
         <div className="flex gap-4">
-          <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
+          <Link
+            href="/about"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             About
           </Link>
-          <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">
+          <Link
+            href="/contact"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             Contact
           </Link>
-          <Link href="/legal" className="text-sm text-muted-foreground hover:text-foreground">
+          <Link
+            href="/legal"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
             Legal
           </Link>
         </div>
       </div>
     </footer>
-  )
+  );
 }

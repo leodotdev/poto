@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
 
 interface ConfettiButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   confettiColors?: string[];
 }
 
@@ -16,6 +18,8 @@ export function ConfettiButton({
   confettiColors = ["#FFC700", "#FF0099", "#00BFFF", "#7CFF00", "#FF7C00"],
   className,
   onClick,
+  variant,
+  size,
   ...props
 }: ConfettiButtonProps) {
   const [isExploding, setIsExploding] = useState(false);
@@ -48,7 +52,8 @@ export function ConfettiButton({
 
   return (
     <Button
-      variant="outline"
+      variant={variant}
+      size={size}
       onClick={(e) => {
         createConfetti(e);
         if (onClick) onClick(e);

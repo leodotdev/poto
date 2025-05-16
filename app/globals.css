@@ -265,8 +265,9 @@
   
   .scrapbook-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    justify-content: center; /* centers the items */
+    gap: 2rem;
   }
   
   .animate-wiggle {
@@ -310,5 +311,38 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
+  }
+  
+  /* Rings Effect Styles */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+  }
+  
+  /* Custom cursor styles */
+  .custom-cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition: width 0.2s, height 0.2s;
+    will-change: transform;
+  }
+  
+  /* Audio visualizer controls */
+  @media (min-width: 768px) {
+    /* Only show cursor on desktop */
+    .custom-cursor.hidden {
+      display: block;
+    }
+    
+    /* Hide system cursor when custom cursor is active */
+    body:has(.custom-cursor:not(.hidden)) {
+      cursor: none;
+    }
   }
 }

@@ -20,11 +20,16 @@ export async function POST(req: NextRequest) {
     } else {
       return NextResponse.json(result, { status: 400 });
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in subscribe route:', error);
     
+    let errorMessage = 'An error occurred';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+
     return NextResponse.json(
-      { success: false, error: error.message || 'An error occurred' },
+      { success: false, error: errorMessage },
       { status: 500 }
     );
   }

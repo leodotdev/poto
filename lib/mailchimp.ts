@@ -23,21 +23,42 @@ export async function addSubscriber(email: string) {
       success: true,
       data: response,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Check if the error is because the user is already subscribed
-    if (error.response && error.response.body && error.response.body.title === 'Member Exists') {
+    if (
+      typeof error === 'object' &&
+      error !== null &&
+      'response' in error &&
+      typeof (error as any).response === 'object' &&
+      (error as any).response !== null &&
+      'body' in (error as any).response &&
+      typeof (error as any).response.body === 'object' &&
+      (error as any).response.body !== null &&
+      'title' in (error as any).response.body &&
+      (error as any).response.body.title === 'Member Exists'
+    ) {
       return {
         success: true,
-        data: { id: error.response.body.detail.split('with the email ')[1].split(' already')[0] },
+        // Safely access detail assuming it might not exist or have the expected structure
+        data: { id: (error as any).response.body.detail?.split('with the email ')?.[1]?.split(' already')?.[0] || 'unknown' },
         message: 'You are already subscribed!',
       };
     }
 
     console.error('Error adding subscriber to Mailchimp:', error);
     
+    let errorMessage = 'An error occurred while subscribing';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    } else if (typeof error === 'object' && error !== null && 'message' in error && typeof (error as any).message === 'string') {
+      errorMessage = (error as any).message;
+    } else if (typeof error === 'string') {
+      errorMessage = error;
+    }
+
     return {
       success: false,
-      error: error.message || 'An error occurred while subscribing',
+      error: errorMessage,
     };
   }
 }

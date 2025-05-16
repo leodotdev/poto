@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,17 +43,17 @@ export default function ContactPage() {
     },
   });
 
-  async function onSubmit(data: FormValues) {
+  async function onSubmit(_data: FormValues) {
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     toast.success("Message sent successfully!", {
       description: "We'll get back to you soon.",
       duration: 5000,
     });
-    
+
     setIsSubmitting(false);
     setIsSubmitted(true);
     form.reset();
@@ -66,13 +66,14 @@ export default function ContactPage() {
         <div className="space-y-4">
           <p className="label">Get in Touch</p>
           <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Let's{" "}
+            Let&apos;s{" "}
             <span className="squiggle-border relative inline-block">
               Connect
             </span>
           </h1>
           <p className="mx-auto max-w-[700px] text-lg text-muted-foreground">
-            Have questions, ideas, or just want to say hello? We'd love to hear from you.
+            Have questions, ideas, or just want to say hello? We&apos;d love to
+            hear from you.
           </p>
         </div>
       </section>
@@ -81,10 +82,12 @@ export default function ContactPage() {
         {/* Contact Info */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <h2 className="font-serif text-2xl font-bold tracking-tight">Contact Information</h2>
+            <h2 className="font-serif text-2xl font-bold tracking-tight">
+              Contact Information
+            </h2>
             <p className="text-muted-foreground">
-              Reach out and we'll respond as soon as possible. We value every message 
-              and look forward to connecting with you.
+              Reach out and we&apos;ll respond as soon as possible. We value
+              every message and look forward to connecting with you.
             </p>
           </div>
 
@@ -94,7 +97,9 @@ export default function ContactPage() {
                 <Mail className="mt-1 h-5 w-5 text-primary" />
                 <div>
                   <h3 className="font-medium">Email Us</h3>
-                  <p className="text-sm text-muted-foreground">hello@poetictoolbox.com</p>
+                  <p className="text-sm text-muted-foreground">
+                    hello@poetictoolbox.com
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -105,8 +110,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-medium">Visit Our Studio</h3>
                   <p className="text-sm text-muted-foreground">
-                    123 Creative Lane<br />
-                    Imagination District<br />
+                    123 Creative Lane
+                    <br />
+                    Imagination District
+                    <br />
                     Portland, OR 97205
                   </p>
                 </div>
@@ -119,7 +126,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-medium">Office Hours</h3>
                   <p className="text-sm text-muted-foreground">
-                    Monday – Friday: 9am – 5pm<br />
+                    Monday – Friday: 9am – 5pm
+                    <br />
                     Weekend: By appointment
                   </p>
                 </div>
@@ -131,9 +139,12 @@ export default function ContactPage() {
         {/* Contact Form */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <h2 className="font-serif text-2xl font-bold tracking-tight">Send a Message</h2>
+            <h2 className="font-serif text-2xl font-bold tracking-tight">
+              Send a Message
+            </h2>
             <p className="text-muted-foreground">
-              Fill out the form below and we'll get back to you as soon as possible.
+              Fill out the form below and we&apos;ll get back to you as soon as
+              possible.
             </p>
           </div>
 
@@ -144,8 +155,8 @@ export default function ContactPage() {
                   <MessageSquare className="mx-auto h-12 w-12 text-primary" />
                   <h3 className="text-xl font-medium">Message Sent!</h3>
                   <p className="text-muted-foreground">
-                    Thank you for reaching out. We've received your message and will 
-                    respond as soon as possible.
+                    Thank you for reaching out. We&apos;ve received your message
+                    and will respond as soon as possible.
                   </p>
                   <Button
                     onClick={() => setIsSubmitted(false)}
@@ -156,7 +167,10 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-4"
+                  >
                     <div className="grid gap-4 md:grid-cols-2">
                       <FormField
                         control={form.control}
@@ -178,7 +192,10 @@ export default function ContactPage() {
                           <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                              <Input placeholder="Your email address" {...field} />
+                              <Input
+                                placeholder="Your email address"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -215,9 +232,9 @@ export default function ContactPage() {
                         </FormItem>
                       )}
                     />
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
+                    <Button
+                      type="submit"
+                      className="w-full"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (

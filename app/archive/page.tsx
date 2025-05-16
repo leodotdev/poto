@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, Search, Filter, BookOpen, Edit, Feather } from "lucide-react";
+import {
+  ArrowRight,
+  Search,
+  Filter,
+  BookOpen,
+  Edit,
+  Feather,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -10,65 +17,71 @@ const rituals = [
   {
     id: "morning-pages",
     title: "Morning Pages",
-    description: "A daily practice of three pages of longhand, stream-of-consciousness writing to clear the mind and awaken creativity.",
+    description:
+      "A daily practice of three pages of longhand, stream-of-consciousness writing to clear the mind and awaken creativity.",
     category: "Writing",
     difficulty: "Beginner",
     timeRequired: "30 minutes",
-    tags: ["morning-ritual", "journaling", "creative-unblocking"]
+    tags: ["morning-ritual", "journaling", "creative-unblocking"],
   },
   {
     id: "visual-mapping",
     title: "Visual Thought Mapping",
-    description: "A visual brainstorming technique that connects ideas through images, colors, and organic patterns rather than linear notes.",
+    description:
+      "A visual brainstorming technique that connects ideas through images, colors, and organic patterns rather than linear notes.",
     category: "Visual",
     difficulty: "Intermediate",
     timeRequired: "45 minutes",
-    tags: ["brainstorming", "visual-thinking", "idea-generation"]
+    tags: ["brainstorming", "visual-thinking", "idea-generation"],
   },
   {
     id: "sensory-walk",
     title: "The Sensory Walk",
-    description: "A mindful walking practice where you document observations through all five senses to heighten your perceptual awareness.",
+    description:
+      "A mindful walking practice where you document observations through all five senses to heighten your perceptual awareness.",
     category: "Movement",
     difficulty: "Beginner",
     timeRequired: "60 minutes",
-    tags: ["mindfulness", "observation", "nature-connection"]
+    tags: ["mindfulness", "observation", "nature-connection"],
   },
   {
     id: "creative-constraints",
     title: "Creative Constraints Exercise",
-    description: "A technique that intentionally limits your tools, time, or techniques to spark innovative thinking and fresh approaches.",
+    description:
+      "A technique that intentionally limits your tools, time, or techniques to spark innovative thinking and fresh approaches.",
     category: "Mixed",
     difficulty: "Advanced",
     timeRequired: "120 minutes",
-    tags: ["problem-solving", "innovation", "limitations"]
+    tags: ["problem-solving", "innovation", "limitations"],
   },
   {
     id: "object-stories",
     title: "Object Stories",
-    description: "A storytelling ritual where you select random objects and weave narratives that connect them, revealing unexpected meanings.",
+    description:
+      "A storytelling ritual where you select random objects and weave narratives that connect them, revealing unexpected meanings.",
     category: "Writing",
     difficulty: "Intermediate",
     timeRequired: "45 minutes",
-    tags: ["storytelling", "object-connection", "narrative"]
+    tags: ["storytelling", "object-connection", "narrative"],
   },
   {
     id: "collage-meditation",
     title: "Intuitive Collage Meditation",
-    description: "A meditative practice where you create collages without planning, allowing your intuition to guide material selection and arrangement.",
+    description:
+      "A meditative practice where you create collages without planning, allowing your intuition to guide material selection and arrangement.",
     category: "Visual",
     difficulty: "Beginner",
     timeRequired: "90 minutes",
-    tags: ["intuition", "collage", "visual-expression"]
+    tags: ["intuition", "collage", "visual-expression"],
   },
 ];
 
 // Category icons
 const categoryIcons = {
-  "Writing": <Edit className="h-5 w-5" />,
-  "Visual": <Feather className="h-5 w-5" />,
-  "Movement": <BookOpen className="h-5 w-5" />,
-  "Mixed": <BookOpen className="h-5 w-5" />
+  Writing: <Edit className="h-5 w-5" />,
+  Visual: <Feather className="h-5 w-5" />,
+  Movement: <BookOpen className="h-5 w-5" />,
+  Mixed: <BookOpen className="h-5 w-5" />,
 };
 
 export default function ArchivePage() {
@@ -80,13 +93,11 @@ export default function ArchivePage() {
           <p className="label">Explore Our Collection</p>
           <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             The Ritual{" "}
-            <span className="squiggle-border relative inline-block">
-              Index
-            </span>
+            <span className="squiggle-border relative inline-block">Index</span>
           </h1>
           <p className="mx-auto max-w-[700px] text-lg text-muted-foreground">
-            A curated collection of creative practices, experiments, and rituals to 
-            help you reconnect with your creative essence.
+            A curated collection of creative practices, experiments, and rituals
+            to help you reconnect with your creative essence.
           </p>
         </div>
       </section>
@@ -96,10 +107,7 @@ export default function ArchivePage() {
         <div className="flex flex-col gap-4 sm:flex-row">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input 
-              placeholder="Search rituals..." 
-              className="pl-9" 
-            />
+            <Input placeholder="Search rituals..." className="pl-9" />
           </div>
           <Button variant="outline">
             <div className="flex items-center gap-2">
@@ -119,10 +127,16 @@ export default function ArchivePage() {
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-2">
-                      {categoryIcons[ritual.category as keyof typeof categoryIcons]}
+                      {
+                        categoryIcons[
+                          ritual.category as keyof typeof categoryIcons
+                        ]
+                      }
                       <p className="label">{ritual.category}</p>
                     </div>
-                    <h3 className="font-serif text-xl font-semibold">{ritual.title}</h3>
+                    <h3 className="font-serif text-xl font-semibold">
+                      {ritual.title}
+                    </h3>
                   </div>
                   <div className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
                     {ritual.difficulty}
@@ -131,7 +145,7 @@ export default function ArchivePage() {
                 <p className="text-muted-foreground">{ritual.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {ritual.tags.map((tag) => (
-                    <span 
+                    <span
                       key={tag}
                       className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
                     >
@@ -142,7 +156,9 @@ export default function ArchivePage() {
               </CardContent>
               <CardFooter className="border-t p-6 pt-4">
                 <div className="flex w-full items-center justify-between">
-                  <p className="text-sm text-muted-foreground">{ritual.timeRequired}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {ritual.timeRequired}
+                  </p>
                   <Link href={`/archive/${ritual.id}`}>
                     <Button variant="link" className="font-medium p-0">
                       <div className="flex items-center gap-2">
@@ -165,8 +181,9 @@ export default function ArchivePage() {
             New Rituals Coming Soon
           </h2>
           <p className="text-muted-foreground">
-          Our collection is ever-growing. Sign up to be notified when we add new creative practices.
-        </p>
+            Our collection is ever-growing. Sign up to be notified when we add
+            new creative practices.
+          </p>
         </div>
         <div>
           <Link href="/">
