@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ConfettiButton } from "@/components/ui/confetti-button";
-import { CustomCursor } from "@/components/ui/custom-cursor";
 import { EmailSignup } from "@/components/ui/email-signup";
 
 export default function Home() {
@@ -63,8 +62,6 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Custom Cursor */}
-        <CustomCursor />
       </section>
 
       {/* Email Signup */}
