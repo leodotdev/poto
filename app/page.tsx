@@ -11,52 +11,60 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ConfettiButton } from "@/components/ui/confetti-button";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 import { EmailSignup } from "@/components/ui/email-signup";
 
 export default function Home() {
   return (
     <div className="container space-y-24 py-16 md:py-24">
       {/* Hero Section */}
-      <section className="flex flex-col items-center gap-8 text-center md:gap-12 py-12">
-        <div className="space-y-4">
-          <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            The Poetic{" "}
-            <span className="squiggle-border relative inline-block text-gradient">
-              Toolbox
-            </span>
-          </h1>
-          <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl">
-            A sanctuary for artists, thoughtful humans, tired professionals,
-            curious skeptics, recovering perfectionists, and overthinkers with
-            good hearts.
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <ConfettiButton
-            confettiColors={[
-              "#8B5CF6",
-              "#D946EF",
-              "#F97316",
-              "#06B6D4",
-              "#84CC16",
-            ]}
-            size="lg"
-            className="hover-lift"
-          >
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4" />
-              <span>Spark Creativity</span>
-            </div>
-          </ConfettiButton>
-          <Link href="/archive">
-            <Button variant="outline" size="lg" className="hover-lift">
+      <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden">
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center gap-8 md:gap-12 py-12">
+          <div className="space-y-6">
+            <div className="text-sm uppercase tracking-widest text-primary/80 font-mono mb-2">The creative process</div>
+            <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white">
+              The Poetic{" "}
+              <span className="squiggle-border relative inline-block text-gradient">
+                Toolbox
+              </span>
+            </h1>
+            <p className="mx-auto max-w-[700px] text-lg text-white/80 md:text-xl">
+              A sanctuary for artists, thoughtful humans, tired professionals,
+              curious skeptics, recovering perfectionists, and overthinkers with
+              good hearts.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+            <ConfettiButton
+              confettiColors={[
+                "#8B5CF6",
+                "#D946EF",
+                "#F97316",
+                "#06B6D4",
+                "#84CC16",
+              ]}
+              size="lg"
+              className="hover-lift"
+            >
               <div className="flex items-center gap-2">
-                <span>Explore Rituals</span>
-                <ArrowRight className="h-4 w-4" />
+                <Sparkles className="h-4 w-4" />
+                <span>Spark Creativity</span>
               </div>
-            </Button>
-          </Link>
+            </ConfettiButton>
+            <Link href="/archive">
+              <Button variant="outline" size="lg" className="hover-lift">
+                <div className="flex items-center gap-2">
+                  <span>Explore Rituals</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Button>
+            </Link>
+          </div>
         </div>
+        
+        {/* Custom Cursor */}
+        <CustomCursor />
       </section>
 
       {/* Email Signup */}
@@ -114,9 +122,9 @@ export default function Home() {
                   Community Connection
                 </h3>
                 <p className="text-muted-foreground">
-                  Join a sanctuary of like-minded souls seeking to reconnect with
-                  their creative essence in a world that often values productivity
-                  over process.
+                  Join a sanctuary of like-minded souls seeking to reconnect
+                  with their creative essence in a world that often values
+                  productivity over process.
                 </p>
               </div>
             </CardContent>
