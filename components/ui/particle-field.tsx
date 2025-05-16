@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useTheme } from "next-themes";
 import * as THREE from "three";
 import { useFrame, useThree, Canvas } from "@react-three/fiber";

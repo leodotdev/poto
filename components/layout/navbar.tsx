@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Menu } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { path: "/", label: "Portal" },
@@ -16,11 +17,11 @@ const navItems = [
   { path: "/archive", label: "Ritual Index" },
   { path: "/contact", label: "Contact" },
   { path: "/shop", label: "Gift Shop" },
-]
+];
 
 export function Navbar() {
-  const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -64,7 +65,7 @@ export function Navbar() {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="font-serif text-lg font-bold tracking-tight"
+                  className="flex items-center gap-2 font-serif text-lg font-bold tracking-tight"
                 >
                   The Poetic Toolbox™
                 </Link>
@@ -94,5 +95,5 @@ export function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
